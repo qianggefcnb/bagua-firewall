@@ -4,56 +4,40 @@
 
 ## 功能
 
-- AI感知: IsolationForest + RandomForest + MLP
+- AI感知: IF + RF + MLP
 - 漏洞扫描: Web + CVE + 系统 + 数据库 + 智能合约
-- 反向扫描: 以攻代守
-- 阴阳转换: 动态防御
+- 渗透测试工具集成
+- 阴阳转换防御
 
-## 漏洞库 (22种)
+## 漏洞库 (20种)
 
-### Web漏洞 (5)
-- SQL注入 (CWE-89)
-- XSS (CWE-79)
-- 命令注入 (CWE-78)
-- 目录遍历 (CWE-22)
-- 文件上传 (CWE-434)
+| 类别 | 数量 |
+|------|------|
+| Web | 5 |
+| CVE | 5 |
+| 智能合约 | 4 |
+| 系统 | 3 |
+| 数据库 | 3 |
 
-### CVE (7)
-- CVE-2022-23808 (CPU) - HIGH
-- CVE-2021-4104 (Redis) - CRITICAL
-- CVE-2021-41773 (Apache) - HIGH
-- CVE-2021-45046 (Log4j) - CRITICAL
-- CVE-2021-4045 (IoT) - HIGH
+## 安全工具 (10个)
 
-### 系统漏洞 (3)
-- Kernel提权 (Kernelhub)
-- Windows提权 (SpoolFool)
-- 路由器漏洞
-
-### 数据库漏洞 (3)
-- MySQL XXE
-- H2 Database XXE
-- Redis RCE
-
-### 智能合约 (4)
-- Reentrancy - CRITICAL
-- Integer Overflow - HIGH
-- Flash Loan - CRITICAL
-- Access Control - HIGH
-
-## 工具
-
-- Kernelhub - 内核漏洞库
-- w3af - Web审计框架
-- CVE_Database - 漏洞数据库
+| 工具 | Stars | 描述 |
+|------|-------|------|
+| nuclei | 27K | 漏洞扫描器 |
+| sherlock | 73K | 红队工具 |
+| lynis | 15K | 安全审计 |
+| PentestGPT | 12K | 渗透测试 |
+| subfinder | 13K | 子域名枚举 |
+| reconftw | 7K | 侦察工具 |
+| KernelK | 内hub | 3核漏洞 |
+| w3af | 5K | Web审计 |
 
 ## 模块
 
-- bagua_final_vuln.py
-- interactive_defense.py
-- attack_scanner.py
-- vulns_enhanced.py
+- vulns_enhanced.py - 漏洞库
+- attack_scanner.py - 反向扫描
+- interactive_defense.py - 交互防御
 
 ## 更新
 
-- 2026-03-05: 添加系统/数据库漏洞
+- 2026-03-05: 添加渗透测试工具

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Enhanced Vulnerability Database - 增强漏洞库
-Based on recent learning
+Enhanced Vulnerability Database - Complete
+Based on GitHub learning
 """
 
 class VulnDB:
@@ -15,76 +15,63 @@ class VulnDB:
             "File_Upload": {"severity": "HIGH", "cve": "CWE-434"},
         }
         
-        # CVE - from learning
+        # CVE
         self.cve = {
-            "CVE-2022-23808": {"type": "CPU漏洞", "severity": "HIGH"},
-            "CVE-2021-4104": {"type": "Redis漏洞", "severity": "CRITICAL"},
+            "CVE-2022-23808": {"type": "CPU", "severity": "HIGH"},
+            "CVE-2021-4104": {"type": "Redis", "severity": "CRITICAL"},
             "CVE-2021-41773": {"type": "Apache", "severity": "HIGH"},
-            "CVE-2021-23017": {"type": "Nginx", "severity": "MEDIUM"},
-            "CVE-2021-28041": {"type": "OpenSSH", "severity": "MEDIUM"},
             "CVE-2021-45046": {"type": "Log4j", "severity": "CRITICAL"},
-            "CVE-2021-4045": {"type": "IoT命令注入", "severity": "HIGH"},
+            "CVE-2021-4045": {"type": "IoT", "severity": "HIGH"},
         }
         
         # Smart Contract
         self.smart_contract = {
-            "Reentrancy": {"severity": "CRITICAL", "cve": "CWE-841"},
-            "Integer_Overflow": {"severity": "HIGH", "cve": "CWE-190"},
+            "Reentrancy": {"severity": "CRITICAL"},
+            "Integer_Overflow": {"severity": "HIGH"},
             "Flash_Loan": {"severity": "CRITICAL"},
-            "Access_Control": {"severity": "HIGH", "cve": "CWE-284"},
+            "Access_Control": {"severity": "HIGH"},
         }
         
-        # System/OS vulnerabilities - NEW
+        # System
         self.system = {
-            "Kernel_Privilege_Escalation": {
-                "severity": "CRITICAL",
-                "cve": "CVE-2021-xxx",
-                "source": "Kernelhub"
-            },
-            "Windows_Local_Privilege": {
-                "severity": "CRITICAL", 
-                "cve": "CVE-2021-xxxx",
-                "source": "SpoolFool"
-            },
-            "Router_Exploit": {
-                "severity": "HIGH",
-                "cve": "CVE-2021-4045",
-                "source": "IoT"
-            },
+            "Kernel_PrivEsc": {"severity": "CRITICAL"},
+            "Windows_PrivEsc": {"severity": "CRITICAL"},
+            "Router_Exploit": {"severity": "HIGH"},
         }
         
-        # Database vulnerabilities - NEW
+        # Database
         self.database = {
-            "MySQL_XXE": {"severity": "MEDIUM", "cve": "JDBC-XXE"},
-            "H2_Database_XXE": {"severity": "HIGH", "cve": "JDBC-SQLXML"},
-            "Redis_RCE": {"severity": "CRITICAL", "cve": "CVE-2021-4104"},
+            "MySQL_XXE": {"severity": "MEDIUM"},
+            "H2_XXE": {"severity": "HIGH"},
+            "Redis_RCE": {"severity": "CRITICAL"},
         }
         
-        # Tools from learning
+        # Security Tools - from GitHub learning
         self.tools = {
-            "Kernelhub": "Linux/Mac/Windows内核漏洞",
-            "w3af": "Web应用攻击审计框架",
-            "CVE_Database": "漏洞数据库",
-            "SpoolFool": "Windows提权",
-            "zenith": "内存损坏漏洞",
+            # 渗透测试
+            "PentestGPT": {"stars": 11909, "desc": "自动化渗透测试Agent"},
+            "fsociety": {"stars": 11908, "desc": "渗透测试框架"},
+            
+            # 漏洞扫描
+            "nuclei": {"stars": 27320, "desc": "快速漏洞扫描器"},
+            
+            # 子域名
+            "subfinder": {"stars": 13170, "desc": "被动子域名枚举"},
+            "reconftw": {"stars": 7281, "desc": "侦察工具"},
+            
+            # 安全审计
+            "lynis": {"stars": 15352, "desc": "Linux/macOS安全审计"},
+            
+            # 红队
+            "sherlock": {"stars": 73372, "desc": "社交媒体用户名搜索"},
+            
+            # 漏洞库
+            "Kernelhub": {"stars": 3189, "desc": "内核漏洞库"},
+            "w3af": {"stars": 4853, "desc": "Web审计框架"},
+            "CVE_Database": {"desc": "漏洞数据库"},
         }
         
-        print("VulnDB: " + str(len(self.web) + len(self.cve) + len(self.smart_contract) + len(self.system) + len(self.database)) + " vulns loaded")
-    
-    def get_all(self):
-        return {
-            "web": self.web,
-            "cve": self.cve,
-            "smart_contract": self.smart_contract,
-            "system": self.system,
-            "database": self.database,
-            "tools": self.tools
-        }
+        print("VulnDB: " + str(len(self.web)+len(self.cve)+len(self.smart_contract)+len(self.system)+len(self.database)) + " vulns, " + str(len(self.tools)) + " tools")
 
 if __name__ == "__main__":
     db = VulnDB()
-    all_vulns = db.get_all()
-    print("\n=== Vulnerability Database ===")
-    for category, vulns in all_vulns.items():
-        if isinstance(vulns, dict):
-            print("\n" + category.upper() + ": " + str(len(vulns)))
